@@ -1,4 +1,4 @@
-# Rotating Icosahedron
+# Rotating Objects by Quaternion
 
 Интерактивная визуализация вращающегося икосаэдра с использованием OpenGL.
 
