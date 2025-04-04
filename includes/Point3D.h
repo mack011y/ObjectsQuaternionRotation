@@ -25,10 +25,14 @@ public:
     bool operator!=(const Point3D&) const;
     Point3D operator+(const Point3D&) const;
     friend std::ostream& operator<<(std::ostream&, const Point3D&);
+    Point3D operator-(const Point3D&) const;
+    Point3D operator*(float) const;
     float distanceTo(const Point3D&) const;
     float distanceToPlane(const Point3D&, const Point3D&, const Point3D&) const;
     int orientationToPlane(const Point3D&, const Point3D&, const Point3D&) const;
     bool isInsideTetrahedron(const Point3D&, const Point3D&, const Point3D&, const Point3D&) const;
+    void normalize();
+    Point3D cross();
 };
 
 #endif //POINT3D_H

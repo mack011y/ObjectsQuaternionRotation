@@ -17,6 +17,13 @@ Point3D Point3D::operator+(const Point3D& other) const {
     return Point3D(x + other.x, y + other.y, z + other.z);
 }
 
+Point3D Point3D::operator*(const float other) const {
+    return Point3D(x * other, y * other, z * other);
+}
+Point3D Point3D::operator-(const Point3D& other) const {
+    return Point3D(x - other.x, y - other.y, z - other.z);
+}
+
 std::ostream& operator<<(std::ostream& os, const Point3D& p) {
     os << "(" << p.x << ", " << p.y << ", " << p.z << ")";
     return os;
@@ -46,4 +53,11 @@ int Point3D::orientationToPlane(const Point3D& p1, const Point3D& p2, const Poin
     float val = nx * (x - p1.x) + ny * (y - p1.y) + nz * (z - p1.z);
     if (std::abs(val) < 1e-6) return 0;
     return (val > 0) ? 1 : -1;
+}
+
+void Point3D::normalize() {
+    float len = sqrt(x * x + y * y + z * z);
+    x /= len;
+    y /= len;
+    z /= len;
 }
